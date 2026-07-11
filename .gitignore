@@ -1,0 +1,19 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Production
+dist
+build
+
+# System/IDE Caches
+.gemini
+.idea
+.vscode
+.DS_Store
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
