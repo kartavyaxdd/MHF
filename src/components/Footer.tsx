@@ -43,10 +43,13 @@ export default function Footer() {
             { name: "Programs", href: "#plans" },
             { name: "Transformations", href: "#transformations" },
             { name: "Location", href: "#location" },
+            { name: "Instagram", href: "https://instagram.com/_mahakal_fitness_gym", isExternal: true },
           ].map((item) => (
             <a
               key={item.name}
               href={item.href}
+              target={item.isExternal ? "_blank" : undefined}
+              rel={item.isExternal ? "noopener noreferrer" : undefined}
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 10,
