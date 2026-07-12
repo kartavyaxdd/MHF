@@ -22,6 +22,18 @@ const transformations: TransformSlide[] = [
     name: "Member 2",
     result: "Weight Loss · Lean Physique",
   },
+  {
+    before: "/before3.png",
+    after: "/after3.png",
+    name: "Member 3",
+    result: "Skinny to Muscular · Bulk Up",
+  },
+  {
+    before: "/before4.png",
+    after: "/after4.png",
+    name: "Member 4",
+    result: "Mass Gain · Strength Build",
+  },
 ];
 
 /* ─── Watermark Overlay ─── */
