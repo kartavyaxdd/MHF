@@ -7,6 +7,7 @@ interface TransformSlide {
   after: string;
   name: string;
   result: string;
+  aspectRatio?: string;
 }
 
 const transformations: TransformSlide[] = [
@@ -27,6 +28,7 @@ const transformations: TransformSlide[] = [
     after: "/after3.png",
     name: "Member 3",
     result: "Skinny to Muscular · Bulk Up",
+    aspectRatio: "16/9",
   },
   {
     before: "/before4.png",
@@ -100,6 +102,7 @@ function SliderCard({ slide, index, inView }: { slide: TransformSlide; index: nu
   const [sliderPos, setSliderPos] = useState(50);
   const isDragging = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const ratio = slide.aspectRatio ?? "3/4";
 
   const calcPos = useCallback((clientX: number) => {
     if (!containerRef.current) return;
@@ -142,7 +145,7 @@ function SliderCard({ slide, index, inView }: { slide: TransformSlide; index: nu
         style={{
           position: "relative",
           width: "100%",
-          aspectRatio: "3/4",
+          aspectRatio: ratio,
           overflow: "hidden",
           borderRadius: "12px 12px 0 0",
           cursor: "ew-resize",
