@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 
 const info = [
   { label: "City", value: "Meerut, Uttar Pradesh" },
-  { label: "Hours", value: "6:00 AM – 10:00 PM" },
+  { label: "Hours", value: "4:00 AM – 9:15 PM" },
   { label: "Days", value: "Monday – Sunday" },
   { label: "Contact", value: "info@mahakalfitness.com" },
 ];

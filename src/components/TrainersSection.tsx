@@ -12,12 +12,12 @@ interface Trainer {
 
 const trainers: Trainer[] = [
   {
-    name: "Vikram Singh",
+    name: "Varun Sharma",
     role: "HEAD STRENGTH COACH",
     specialty: "Powerlifting & Biomechanics",
-    credentials: "CSCS · 8+ Years Coaching",
-    bio: "Specializes in progressive overload programming and correcting mechanical sticking points on squat, bench, and deadlift.",
-    img: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&h=800&fit=crop&auto=format",
+    credentials: "CSCS · 10+ Years Coaching",
+    bio: "Specializes in advanced progressive overload programming, correcting mechanical sticking points, and targeted physique development.",
+    img: "/varun.jpg",
   },
   {
     name: "Rohan Sharma",

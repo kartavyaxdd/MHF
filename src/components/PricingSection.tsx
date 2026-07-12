@@ -36,9 +36,9 @@ const plans: Plan[] = [
   {
     name: "90-Day Transformation",
     tag: "RECOMMENDED · MOST POPULAR",
-    price: "₹3,000",
+    price: "₹3,500",
     period: "3 Months",
-    pricePerMonth: "₹1,000 / mo",
+    pricePerMonth: "₹1,166 / mo",
     rating: "4.9",
     img: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=800&fit=crop&auto=format",
     features: [

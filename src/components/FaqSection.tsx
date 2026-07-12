@@ -9,7 +9,7 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     question: "What are the gym timings?",
-    answer: "We are open Monday to Saturday from 5:00 AM to 10:00 PM, and Sundays from 6:00 AM to 1:00 PM. You can train at any time; there are no peak-hour limits on any of our passes.",
+    answer: "We are open Monday to Saturday from 4:00 AM to 9:15 PM, and Sundays from 6:00 AM to 1:00 PM. You can train at any time; there are no peak-hour limits on any of our passes.",
   },
   {
     question: "Is steam bath access included in all plans?",

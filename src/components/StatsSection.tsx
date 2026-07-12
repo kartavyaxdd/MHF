@@ -3,8 +3,8 @@ import { motion, useInView } from "framer-motion";
 
 const stats = [
   {
-    value: "1,200+",
-    label: "Active Members in Meerut",
+    value: "100+",
+    label: "Active Members",
     desc: "Join a thriving local community of like-minded lifters who support each other's goals.",
   },
   {
