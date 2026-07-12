@@ -14,9 +14,9 @@ const trainers: Trainer[] = [
   {
     name: "Varun Sharma",
     role: "HEAD STRENGTH COACH",
-    specialty: "Powerlifting & Biomechanics",
+    specialty: "Weight Loss & Hypertrophy (Body Recomposition)",
     credentials: "CSCS · 10+ Years Coaching",
-    bio: "Specializes in advanced progressive overload programming, correcting mechanical sticking points, and targeted physique development.",
+    bio: "Helping clients burn stubborn body fat while simultaneously building lean, sculpted muscle through evidence-based resistance training and sustainable, non-restrictive nutrition strategies.",
     img: "/varun.jpg",
   },
   {
