@@ -26,7 +26,6 @@ const plans: Plan[] = [
     features: [
       "Full gym floor access (no peak-hour limits)",
       "Cancel anytime, no long-term contracts",
-      "Locker room, shower & cardio suite access",
       "1-on-1 trainer orientation & form walkthrough",
     ],
     featured: false,
@@ -47,7 +46,6 @@ const plans: Plan[] = [
       "Weekly squat, bench & deadlift form workshops",
       "Mobile progressive overload logs & workout tracking",
       "Member-only WhatsApp circle for form reviews",
-      "Premium locker & shower access",
     ],
     featured: true,
     defaultExp: ["Beginner", "Intermediate", "Advanced"],

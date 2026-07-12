@@ -39,14 +39,7 @@ const trainers: Trainer[] = [
     img: "/anubhav.jpg",
     phone: "8630608211",
   },
-  {
-    name: "Priya Joshi",
-    role: "MOBILITY & FUNCTIONAL COACH",
-    specialty: "Corrective Exercise & Rehab",
-    credentials: "NASM CES · FMS Level 2",
-    bio: "Dedicated to joint health, biomechanical recovery, mobility drills, and rebuilding pain-free structural movement patterns.",
-    img: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&h=800&fit=crop&auto=format",
-  },
+
 ];
 
 export default function TrainersSection() {
