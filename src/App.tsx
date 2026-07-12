@@ -11,6 +11,7 @@ import TrainersSection from "./components/TrainersSection";
 import PersonalTraining from "./components/PersonalTraining";
 import FaqSection from "./components/FaqSection";
 import EquipmentShowcase from "./components/EquipmentShowcase";
+import TransformationsSection from "./components/TransformationsSection";
 
 interface NavbarProps {
   view: "home" | "pt";
@@ -134,6 +135,30 @@ function Navbar({ view, setView, isDark, setIsDark }: NavbarProps) {
             onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "1")}
           >
             Coaches
+          </a>
+          <a
+            href="#transformations"
+            onClick={(e) => {
+              if (view !== "home") {
+                setView("home");
+                setTimeout(() => {
+                  document.getElementById("transformations")?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }
+            }}
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: 12,
+              fontWeight: 600,
+              color: view === "home" ? "#ffffff" : "rgba(255, 255, 255, 0.6)",
+              textDecoration: "none",
+              letterSpacing: "0.02em",
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = "0.8")}
+            onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "1")}
+          >
+            Results
           </a>
           <a
             href="#pt"
@@ -307,6 +332,7 @@ export default function App() {
               <FeaturesSection />
               <PricingSection onNavigateToPT={() => setView("pt")} />
               <TrainersSection />
+              <TransformationsSection />
               <FaqSection />
               <NutritionCalculator />
             </motion.div>
