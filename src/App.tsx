@@ -326,11 +326,11 @@ export default function App() {
               transition={{ duration: 0.3 }}
             >
               <Hero />
-              <StatsSection />
-              <EquipmentShowcase />
               <FeaturesSection />
-              <PricingSection onNavigateToPT={() => setView("pt")} />
+              <StatsSection />
               <TrainersSection />
+              <EquipmentShowcase />
+              <PricingSection onNavigateToPT={() => setView("pt")} />
               <FaqSection />
               <NutritionCalculator />
             </motion.div>
