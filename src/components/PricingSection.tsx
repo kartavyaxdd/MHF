@@ -53,25 +53,6 @@ const plans: Plan[] = [
     defaultExp: ["Beginner", "Intermediate", "Advanced"],
     defaultGoal: "GAIN MUSCLE",
   },
-  {
-    name: "Elite Coaching & Accountability",
-    tag: "100% GUARANTEED RESULTS",
-    price: "₹15,000",
-    period: "3 Months",
-    pricePerMonth: "₹5,000 / mo",
-    rating: "5.0",
-    img: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&h=800&fit=crop&auto=format",
-    features: [
-      "Dedicated 1-on-1 personal lifting coach",
-      "Custom daily workout plans (science-based)",
-      "Daily check-ins & weight track feedback",
-      "Weekly body fat & muscle composition testing",
-      "RISK REVERSAL: Hit your goal or train free until you do!",
-    ],
-    featured: false,
-    defaultExp: ["Beginner", "Intermediate", "Advanced"],
-    defaultGoal: "BUILD STRENGTH",
-  },
 ];
 
 function PlanCard({ plan }: { plan: Plan }) {
@@ -214,7 +195,11 @@ function PlanCard({ plan }: { plan: Plan }) {
   );
 }
 
-export default function PricingSection() {
+interface PricingProps {
+  onNavigateToPT: () => void;
+}
+
+export default function PricingSection({ onNavigateToPT }: PricingProps) {
   return (
     <section id="plans" className="section-pad" style={{ borderTop: "1px solid var(--border)" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -281,6 +266,46 @@ export default function PricingSection() {
             <PlanCard key={p.name} plan={p} />
           ))}
         </div>
+
+        {/* Bottom PT Callout banner */}
+        <div
+          style={{
+            background: "var(--bg-card)",
+            border: "1px solid var(--border)",
+            borderRadius: 12,
+            padding: "28px 32px",
+            marginTop: 48,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 20,
+            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.02)",
+          }}
+        >
+          <div>
+            <span className="mono-badge" style={{ background: "#000000", color: "#ffffff", border: "none", marginBottom: 8, fontSize: 9 }}>
+              LOOKING FOR 1-ON-1 GUIDANCE?
+            </span>
+            <h4 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 20, margin: 0, color: "var(--fg)" }}>
+              Elite Personal Training & Coaching
+            </h4>
+            <p style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: "var(--fg-dim)", margin: "6px 0 0 0", maxWidth: 640, lineHeight: 1.4 }}>
+              Achieve guaranteed strength or body fat reduction goals with our dedicated coaching roster. Features customized biomechanical lifting blueprints and daily metabolic check-ins.
+            </p>
+          </div>
+          
+          <motion.button
+            onClick={onNavigateToPT}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="pill-button"
+            style={{ padding: "12px 28px", fontSize: 12 }}
+          >
+            EXPLORE ELITE PT
+          </motion.button>
+        </div>
+
       </div>
     </section>
   );
