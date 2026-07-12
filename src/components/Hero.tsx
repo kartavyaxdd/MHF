@@ -142,22 +142,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Slide / Page progress indicator on bottom right */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 40,
-          right: "8%",
-          zIndex: 10,
-          fontFamily: "var(--font-mono)",
-          fontSize: 12,
-          fontWeight: 700,
-          color: "rgba(255, 255, 255, 0.6)",
-          letterSpacing: "0.08em",
-        }}
-      >
-        2 / 3
-      </div>
     </section>
   );
 }
