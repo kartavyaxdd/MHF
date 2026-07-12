@@ -383,7 +383,7 @@ export default function PersonalTraining({ onBack }: PTProps) {
                 {[
                   "Dedicated 1-on-1 floor coaching",
                   "Daily macro & calorie tuning",
-                  "Weekly body testing & steam bath",
+                  "Weekly body composition testing",
                   "90-Day Results Guarantee",
                 ].map((inc) => (
                   <li key={inc} style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "var(--fg-muted)", display: "flex", gap: 6 }}>

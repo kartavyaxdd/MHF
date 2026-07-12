@@ -47,7 +47,7 @@ const plans: Plan[] = [
       "Weekly squat, bench & deadlift form workshops",
       "Mobile progressive overload logs & workout tracking",
       "Member-only WhatsApp circle for form reviews",
-      "Premium locker, steam bath & shower access",
+      "Premium locker & shower access",
     ],
     featured: true,
     defaultExp: ["Beginner", "Intermediate", "Advanced"],

@@ -12,8 +12,8 @@ const faqs: FaqItem[] = [
     answer: "We are open Monday to Saturday from 4:00 AM to 9:15 PM, and Sundays from 6:00 AM to 1:00 PM. You can train at any time; there are no peak-hour limits on any of our passes.",
   },
   {
-    question: "Is steam bath access included in all plans?",
-    answer: "Steam bath access is fully included in our 3-Month '90-Day Transformation' plan and all Elite Personal Training tiers at no extra charge. Starter passes can add it for a small drop-in fee.",
+    question: "Is the gym environment safe for female members?",
+    answer: "Absolutely. We are committed to maintaining a highly respectful, secure, and comfortable space. We have dedicated female staff available, certified coaches, and round-the-clock CCTV monitoring on the gym floor, making it completely safe and sound for all female members.",
   },
   {
     question: "Can I freeze my membership if I travel or fall sick?",
