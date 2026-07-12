@@ -116,7 +116,7 @@ export default function Hero() {
 
           {/* Pill Button (white on hero for contrast) */}
           <motion.a
-            href="https://wa.me/919675686868?text=Hi,%20I'm%20interested%20in%20joining%20Mahakal%20Fitness!%20I'd%20like%20to%20claim%20my%20free%203-day%20pass."
+            href="https://wa.me/919675686868?text=Hi,%20I'm%20interested%20in%20joining%20Mahakal%20Fitness!%20I'd%20like%20to%20claim%20my%20free%201-day%20trial."
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03, background: "#f3f3f3" }}
@@ -137,7 +137,7 @@ export default function Hero() {
               justifyContent: "center",
             }}
           >
-            CLAIM YOUR FREE 3-DAY PASS
+            CLAIM YOUR FREE 1-DAY TRIAL
           </motion.a>
         </motion.div>
       </div>

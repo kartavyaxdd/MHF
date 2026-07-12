@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 const info = [
   { label: "City", value: "Meerut, Uttar Pradesh" },
   { label: "Hours", value: "4:00 AM – 9:15 PM" },
-  { label: "Days", value: "Monday – Sunday" },
+  { label: "Days", value: "Monday – Saturday" },
   { label: "Contact", value: "+91 96756 86868" },
 ];
 
@@ -182,7 +182,7 @@ export default function LocationSection() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=700&h=500&fit=crop&auto=format"
+                src="/gym-location.png"
                 alt="Inside Mahakal Fitness Gym"
                 style={{ 
                   width: "100%", 

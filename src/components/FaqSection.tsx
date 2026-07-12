@@ -18,7 +18,7 @@ const faqs: FaqItem[] = [
 
   {
     question: "Do you offer a trial period for new members in Meerut?",
-    answer: "Absolutely. You can claim a free 3-day pass to test all our heavy equipment and experience the gym floor before committing to a membership. Scroll to the top and click 'Claim Your Free 3-Day Pass' to register.",
+    answer: "Absolutely. You can claim a free 1-day trial to test all our heavy equipment and experience the gym floor before committing to a membership. Scroll to the top and click 'Claim Your Free 1-Day Trial' to register.",
   },
   {
     question: "Is car and bike parking available at the gym?",
