@@ -28,12 +28,12 @@ const trainers: Trainer[] = [
     img: "/abhishek.png",
   },
   {
-    name: "Amit Verma",
-    role: "PERFORMANCE COACH",
-    specialty: "Olympic Lifting & Velocity",
-    credentials: "USAW Level 1 · 6+ Years Coaching",
-    bio: "Helps local athletes develop explosive power, speed off the floor, and master technical snatch and clean-and-jerk mechanics.",
-    img: "https://images.unsplash.com/photo-1605296867304-46d5465a25f1?w=600&h=800&fit=crop&auto=format",
+    name: "Anubhav Pradhan",
+    role: "PERSONAL TRAINER",
+    specialty: "Hypertrophy & Conditioning",
+    credentials: "PT · 1 Year Experience",
+    bio: "Specializes in hypertrophy basics, form mechanics, cardiovascular conditioning, and client accountability setups.",
+    img: "/anubhav.jpg",
   },
   {
     name: "Priya Joshi",
