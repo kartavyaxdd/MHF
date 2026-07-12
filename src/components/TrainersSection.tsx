@@ -24,9 +24,9 @@ const trainers: Trainer[] = [
   {
     name: "Abhishek Panwar",
     role: "PERSONAL TRAINER",
-    specialty: "Body Recomposition & Hypertrophy",
+    specialty: "Weight Loss & Teen Athletic Physique",
     credentials: "CPT · 4+ Years Coaching",
-    bio: "Focused on muscle hypertrophy, fat loss protocols, and tailored daily training templates for fast, evidence-based results.",
+    bio: "I help teenagers and young adults build a strong, lean, and athletic physique while achieving healthy weight loss. My coaching combines safe resistance training with sustainable lifestyle habits to help young clients drop fat and build muscle without extreme dieting. I prioritize proper lifting form, injury prevention, and building lifelong gym confidence so clients can transform their bodies and boost their self-esteem.",
     img: "/abhishek.png",
     phone: "9528521770",
   },
