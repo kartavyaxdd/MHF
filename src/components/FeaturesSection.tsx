@@ -116,11 +116,16 @@ function SliderCard({ slide, index, inView }: { slide: TransformSlide; index: nu
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => { if (isDragging.current) calcPos(e.clientX); };
-    const onTouch = (e: TouchEvent) => { if (isDragging.current) calcPos(e.touches[0].clientX); };
+    const onTouch = (e: TouchEvent) => {
+      if (isDragging.current) {
+        if (e.cancelable) e.preventDefault();
+        calcPos(e.touches[0].clientX);
+      }
+    };
     const onUp = () => { isDragging.current = false; };
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchmove", onTouch);
+    window.addEventListener("touchmove", onTouch, { passive: false });
     window.addEventListener("touchend", onUp);
     return () => {
       window.removeEventListener("mousemove", onMove);
@@ -151,6 +156,7 @@ function SliderCard({ slide, index, inView }: { slide: TransformSlide; index: nu
           cursor: "ew-resize",
           userSelect: "none",
           background: "#111",
+          touchAction: "none",
         }}
       >
         {/* After (base layer) */}
