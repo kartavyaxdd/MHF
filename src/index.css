@@ -16,23 +16,36 @@
   --font-mono: 'Space Mono', ui-monospace, monospace;
 }
 
+.dark {
+  --bg: #0c0c0e;
+  --bg-card: #151518;
+  --bg-card2: #1e1e24;
+  --fg: #ffffff;
+  --fg-muted: #e2e2e2;
+  --fg-dim: #9b9b9b;
+  --accent: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(255, 255, 255, 0.16);
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--bg);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--border) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
   color: var(--fg);
   font-family: var(--font-sans);
   overflow-x: hidden;
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 3px; }
 
 /* ── Custom Layout Helpers ── */
 .section-pad {

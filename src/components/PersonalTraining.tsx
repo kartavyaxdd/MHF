@@ -18,7 +18,7 @@ export default function PersonalTraining({ onBack }: PTProps) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       style={{
-        background: "#eaeaea",
+        background: "var(--bg)",
         minHeight: "100vh",
         paddingTop: 100, // accommodate navbar space
         paddingBottom: 80,
@@ -198,7 +198,7 @@ export default function PersonalTraining({ onBack }: PTProps) {
           <div
             style={{
               background: "var(--bg-card)",
-              border: "2px solid #000000",
+              border: "2px solid var(--accent)",
               borderRadius: 16,
               padding: "32px 24px",
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
