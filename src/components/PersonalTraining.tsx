@@ -257,14 +257,17 @@ export default function PersonalTraining({ onBack }: PTProps) {
                   </li>
                 ))}
               </ul>
-              <motion.button
+              <motion.a
+                href="https://wa.me/918630608211?text=Hi%20Anubhav,%20I'm%20interested%20in%20Starter%20Coaching%20PT%20at%20Mahakal%20Fitness!"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="pill-button"
-                style={{ width: "100%", padding: "10px 0", fontSize: 11 }}
+                style={{ width: "100%", padding: "10px 0", fontSize: 11, display: "block", textDecoration: "none", textAlign: "center" }}
               >
                 BOOK STARTER PT
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Standard PT Package */}
@@ -321,14 +324,17 @@ export default function PersonalTraining({ onBack }: PTProps) {
                   </li>
                 ))}
               </ul>
-              <motion.button
+              <motion.a
+                href="https://wa.me/919528521770?text=Hi%20Abhishek,%20I'm%20interested%20in%20Standard%20Coaching%20PT%20at%20Mahakal%20Fitness!"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="pill-button"
-                style={{ width: "100%", padding: "10px 0", fontSize: 11 }}
+                style={{ width: "100%", padding: "10px 0", fontSize: 11, display: "block", textDecoration: "none", textAlign: "center" }}
               >
                 BOOK STANDARD PT
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Elite PT Package */}
@@ -386,14 +392,17 @@ export default function PersonalTraining({ onBack }: PTProps) {
                   </li>
                 ))}
               </ul>
-              <motion.button
+              <motion.a
+                href="https://wa.me/919675686868?text=Hi%20Varun,%20I'm%20interested%20in%20Elite%20Coaching%20PT%20at%20Mahakal%20Fitness!"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="pill-button"
-                style={{ width: "100%", padding: "10px 0", fontSize: 11 }}
+                style={{ width: "100%", padding: "10px 0", fontSize: 11, display: "block", textDecoration: "none", textAlign: "center" }}
               >
                 BOOK ELITE PT
-              </motion.button>
+              </motion.a>
             </div>
           </div>
         </div>
