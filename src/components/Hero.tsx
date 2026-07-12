@@ -94,9 +94,9 @@ export default function Hero() {
               maxWidth: 820,
             }}
           >
-            Stop Wasting Time in the Gym.
+            Start your fitness journey today
             <br />
-            Get Science-Backed, Guaranteed Results.
+            with Mahakal Fitness.
           </h1>
 
           {/* Subheader copy */}
