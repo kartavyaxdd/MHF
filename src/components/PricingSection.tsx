@@ -182,14 +182,17 @@ function PlanCard({ plan }: { plan: Plan }) {
         </ul>
 
         {/* Action Button */}
-        <motion.button
+        <motion.a
+          href={`https://wa.me/919675686868?text=Hi,%20I'm%20interested%20in%20joining%20the%20${encodeURIComponent(plan.period)}%20gym%20plan%20at%20Mahakal%20Fitness!`}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="pill-button"
-          style={{ width: "100%", marginTop: "auto", padding: "10px 0", fontSize: 12 }}
+          style={{ width: "100%", marginTop: "auto", padding: "10px 0", fontSize: 12, display: "block", textDecoration: "none", textAlign: "center" }}
         >
           Join Plan
-        </motion.button>
+        </motion.a>
       </div>
     </motion.div>
   );

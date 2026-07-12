@@ -15,10 +15,7 @@ const faqs: FaqItem[] = [
     question: "Is the gym environment safe for female members?",
     answer: "Absolutely. We are committed to maintaining a highly respectful, secure, and comfortable space. We have dedicated female staff available, certified coaches, and round-the-clock CCTV monitoring on the gym floor, making it completely safe and sound for all female members.",
   },
-  {
-    question: "Can I freeze my membership if I travel or fall sick?",
-    answer: "Yes! For our 3-Month and coaching plans, you can freeze your membership for up to 14 days. Just notify the front desk or drop us a WhatsApp message before your freeze period begins.",
-  },
+
   {
     question: "Do you offer a trial period for new members in Meerut?",
     answer: "Absolutely. You can claim a free 3-day pass to test all our heavy equipment and experience the gym floor before committing to a membership. Scroll to the top and click 'Claim Your Free 3-Day Pass' to register.",

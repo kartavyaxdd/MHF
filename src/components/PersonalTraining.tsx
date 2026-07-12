@@ -229,12 +229,28 @@ export default function PersonalTraining({ onBack }: PTProps) {
               >
                 STARTER PT
               </div>
-              <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 18, margin: "0 0 4px 0", color: "var(--fg)" }}>
-                Coaching Tier
-              </h3>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block", marginBottom: 12 }}>
-                Trainer: Anubhav Pradhan (1 Yr Exp)
-              </span>
+              <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 12 }}>
+                <img
+                  src="/anubhav.jpg"
+                  alt="Anubhav Pradhan"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    border: "1px solid var(--border)",
+                    filter: "grayscale(100%)",
+                  }}
+                />
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 16, margin: 0, color: "var(--fg)" }}>
+                    Starter Coaching
+                  </h3>
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block" }}>
+                    Anubhav Pradhan (1 Yr Exp)
+                  </span>
+                </div>
+              </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 16 }}>
                 <span style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 24, color: "var(--fg)" }}>
                   ₹7,000
@@ -296,12 +312,28 @@ export default function PersonalTraining({ onBack }: PTProps) {
               >
                 STANDARD PT
               </div>
-              <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 18, margin: "0 0 4px 0", color: "var(--fg)" }}>
-                Coaching Tier
-              </h3>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block", marginBottom: 12 }}>
-                Trainer: Abhishek Panwar (4+ Yrs Exp)
-              </span>
+              <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 12 }}>
+                <img
+                  src="/abhishek.png"
+                  alt="Abhishek Panwar"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    border: "1px solid var(--border)",
+                    filter: "grayscale(100%)",
+                  }}
+                />
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 16, margin: 0, color: "var(--fg)" }}>
+                    Standard Coaching
+                  </h3>
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block" }}>
+                    Abhishek Panwar (4+ Yrs Exp)
+                  </span>
+                </div>
+              </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 16 }}>
                 <span style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 24, color: "var(--fg)" }}>
                   ₹9,000
@@ -364,12 +396,28 @@ export default function PersonalTraining({ onBack }: PTProps) {
               >
                 ELITE PACKAGE
               </div>
-              <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 18, margin: "8px 0 4px 0", color: "var(--fg)" }}>
-                Coaching Tier
-              </h3>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block", marginBottom: 12 }}>
-                Trainer: Varun Sharma (10+ Yrs Exp)
-              </span>
+              <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 12, marginTop: 8 }}>
+                <img
+                  src="/varun.jpg"
+                  alt="Varun Sharma"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    border: "1px solid var(--border)",
+                    filter: "grayscale(100%)",
+                  }}
+                />
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 16, margin: 0, color: "var(--fg)" }}>
+                    Elite Coaching
+                  </h3>
+                  <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block" }}>
+                    Varun Sharma (10+ Yrs Exp)
+                  </span>
+                </div>
+              </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 16 }}>
                 <span style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 24, color: "var(--fg)" }}>
                   ₹15,000
