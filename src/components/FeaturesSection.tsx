@@ -1,277 +1,300 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-interface Transformation {
+interface TransformSlide {
+  before: string;
+  after: string;
   name: string;
-  beforeImg: string;
-  afterImg: string;
-  quote: string;
-  programLink: string;
+  result: string;
 }
 
-const transformations: Transformation[] = [
+const transformations: TransformSlide[] = [
   {
-    name: "Liam",
-    beforeImg: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=300&h=400&fit=crop&auto=format&q=60",
-    afterImg: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=300&h=400&fit=crop&auto=format&q=60",
-    quote: "I wasted 2 years copying random bodybuilding routines with zero progress. Switching to Mahakal's Committed Plan gave me a structured, scientific path. I gained 6kg of pure muscle in 12 weeks.",
-    programLink: "#plans",
+    before: "/before1.png",
+    after: "/after1.png",
+    name: "Member 1",
+    result: "Fat Loss · Body Recomposition",
   },
   {
-    name: "Sarah",
-    beforeImg: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=300&h=400&fit=crop&auto=format&q=60",
-    afterImg: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=300&h=400&fit=crop&auto=format&q=60",
-    quote: "I was always intimidated to lift weights and had no idea where to start. The coaches corrected my form, adjusted my nutrition, and helped me drop 8kg while building real strength.",
-    programLink: "#plans",
+    before: "/before2.png",
+    after: "/after2.png",
+    name: "Member 2",
+    result: "Weight Loss · Lean Physique",
   },
   {
-    name: "David",
-    beforeImg: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&h=400&fit=crop&auto=format&q=60",
-    afterImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=400&fit=crop&auto=format&q=60",
-    quote: "No bro-science, just raw results. Having my training, sets, and RPEs structured meant zero guesswork. My bench went up by 30kg and my squat by 45kg.",
-    programLink: "#plans",
+    before: "/before3.png",
+    after: "/after3.png",
+    name: "Member 3",
+    result: "Skinny to Muscular · Bulk Up",
+  },
+  {
+    before: "/before4.png",
+    after: "/after4.png",
+    name: "Member 4",
+    result: "Mass Gain · Strength Build",
   },
 ];
 
-export default function FeaturesSection() {
-  const [index, setIndex] = useState(0);
+/* ─── MF Watermark ─── */
+function MFWatermark() {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 12,
+        right: 12,
+        zIndex: 20,
+        pointerEvents: "none",
+        display: "flex",
+        alignItems: "center",
+        gap: 5,
+        background: "rgba(0,0,0,0.55)",
+        backdropFilter: "blur(4px)",
+        padding: "4px 9px",
+        borderRadius: 6,
+      }}
+    >
+      <div
+        style={{
+          width: 22,
+          height: 22,
+          background: "#ffffff",
+          borderRadius: 4,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "'Space Mono', monospace",
+            fontWeight: 700,
+            fontSize: 9,
+            color: "#000000",
+            letterSpacing: "-0.05em",
+          }}
+        >
+          MF
+        </span>
+      </div>
+      <span
+        style={{
+          fontFamily: "'Space Mono', monospace",
+          fontWeight: 700,
+          fontSize: 8,
+          color: "#ffffff",
+          letterSpacing: "0.04em",
+          textTransform: "uppercase",
+        }}
+      >
+        Mahakal Fitness
+      </span>
+    </div>
+  );
+}
+
+/* ─── Drag Slider Card ─── */
+function SliderCard({ slide, index, inView }: { slide: TransformSlide; index: number; inView: boolean }) {
+  const [sliderPos, setSliderPos] = useState(50);
+  const isDragging = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleNext = () => {
-    setIndex((prev) => (prev + 1) % transformations.length);
-  };
+  const calcPos = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const pct = ((clientX - rect.left) / rect.width) * 100;
+    setSliderPos(Math.min(100, Math.max(0, pct)));
+  }, []);
 
-  const handlePrev = () => {
-    setIndex((prev) => (prev - 1 + transformations.length) % transformations.length);
-  };
+  const onMouseDown = (e: React.MouseEvent) => { isDragging.current = true; calcPos(e.clientX); };
+  const onTouchStart = (e: React.TouchEvent) => { isDragging.current = true; calcPos(e.touches[0].clientX); };
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => { if (isDragging.current) calcPos(e.clientX); };
+    const onTouch = (e: TouchEvent) => { if (isDragging.current) calcPos(e.touches[0].clientX); };
+    const onUp = () => { isDragging.current = false; };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    window.addEventListener("touchmove", onTouch);
+    window.addEventListener("touchend", onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      window.removeEventListener("touchmove", onTouch);
+      window.removeEventListener("touchend", onUp);
+    };
+  }, [calcPos]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
+      style={{ display: "flex", flexDirection: "column" }}
+    >
+      {/* Slider */}
+      <div
+        ref={containerRef}
+        onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "3/4",
+          overflow: "hidden",
+          borderRadius: "12px 12px 0 0",
+          cursor: "ew-resize",
+          userSelect: "none",
+          background: "#111",
+        }}
+      >
+        {/* After (base layer) */}
+        <img
+          src={slide.after}
+          alt="After"
+          draggable={false}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+        />
+
+        {/* Before (clipped) */}
+        <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
+          <img
+            src={slide.before}
+            alt="Before"
+            draggable={false}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </div>
+
+        {/* Divider line */}
+        <div
+          style={{
+            position: "absolute", top: 0, bottom: 0,
+            left: `${sliderPos}%`, width: 2,
+            background: "#fff",
+            boxShadow: "0 0 8px rgba(0,0,0,0.6)",
+            transform: "translateX(-50%)", zIndex: 10,
+          }}
+        >
+          {/* Handle */}
+          <div
+            style={{
+              position: "absolute", top: "50%", left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 38, height: 38, borderRadius: "50%",
+              background: "#fff", boxShadow: "0 2px 14px rgba(0,0,0,0.5)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M5 8L2 5M5 8L2 11M11 8L14 5M11 8L14 11" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="8" y1="2" x2="8" y2="14" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* BEFORE label */}
+        <div style={{
+          position: "absolute", top: 10, left: 10, zIndex: 5,
+          background: "rgba(0,0,0,0.72)", color: "#fff",
+          fontFamily: "'Space Mono', monospace", fontSize: 8, fontWeight: 700,
+          padding: "3px 8px", borderRadius: 3, letterSpacing: "0.06em",
+          opacity: sliderPos > 10 ? 1 : 0, transition: "opacity 0.2s",
+        }}>BEFORE</div>
+
+        {/* AFTER label */}
+        <div style={{
+          position: "absolute", top: 10, right: 10, zIndex: 5,
+          background: "rgba(0,0,0,0.72)", color: "#fff",
+          fontFamily: "'Space Mono', monospace", fontSize: 8, fontWeight: 700,
+          padding: "3px 8px", borderRadius: 3, letterSpacing: "0.06em",
+          opacity: sliderPos < 90 ? 1 : 0, transition: "opacity 0.2s",
+        }}>AFTER</div>
+
+        <MFWatermark />
+      </div>
+
+      {/* Caption */}
+      <div
+        style={{
+          background: "var(--bg-card)",
+          border: "1px solid var(--border)", borderTop: "none",
+          borderRadius: "0 0 12px 12px",
+          padding: "14px 16px",
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+        }}
+      >
+        <div>
+          <span style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: 14, color: "var(--fg)", display: "block" }}>
+            {slide.name}
+          </span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--fg-dim)", fontWeight: 700, letterSpacing: "0.04em" }}>
+            {slide.result}
+          </span>
+        </div>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, fontWeight: 700, color: "var(--fg-dim)", letterSpacing: "0.04em" }}>
+          ← DRAG →
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ─── Main Section ─── */
+export default function FeaturesSection() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 });
 
   return (
     <section id="transformations" className="section-pad" style={{ borderTop: "1px solid var(--border)" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        
-        {/* Header Block */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48 }}>
-          <div>
-            <h2
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontWeight: 800,
-                fontSize: "clamp(36px, 6vw, 56px)",
-                color: "var(--fg)",
-                lineHeight: 1.05,
-                margin: 0,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              100,000+
-              <br />
-              Transformations
-            </h2>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 14,
-                color: "var(--fg-dim)",
-                margin: "12px 0 0 0",
-                maxWidth: 480,
-                lineHeight: 1.5,
-              }}
-            >
-              Results vary based on factors such as training consistency, nutrition, and individual differences.
-            </p>
-          </div>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }} ref={ref}>
 
-          {/* Carousel Arrows */}
-          <div style={{ display: "flex", gap: 12 }}>
-            <button
-              onClick={handlePrev}
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "var(--bg-card)",
-                border: "1px solid var(--border)",
-                color: "var(--fg)",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 700,
-                fontSize: 16,
-              }}
-            >
-              ←
-            </button>
-            <button
-              onClick={handleNext}
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "var(--bg-card)",
-                border: "1px solid var(--border)",
-                color: "var(--fg)",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 700,
-                fontSize: 16,
-              }}
-            >
-              →
-            </button>
-          </div>
+        <div className="section-divider">
+          <div className="section-divider-line" />
+          <span className="section-divider-text">REAL RESULTS</span>
+          <div className="section-divider-line" />
         </div>
 
-        {/* Carousel Window */}
-        <div 
-          style={{ 
-            overflow: "hidden",
-            width: "100%",
-            borderRadius: 12,
-            border: "1px solid var(--border)",
-            background: "var(--bg-card)",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.02)",
-          }}
-        >
-          <motion.div
-            ref={containerRef}
-            animate={{ x: `-${index * 100}%` }}
-            transition={{ type: "spring", stiffness: 100, damping: 18 }}
-            style={{
-              display: "flex",
-              width: `${transformations.length * 100}%`,
-            }}
-          >
-            {transformations.map((item, tIdx) => (
-              <div 
-                key={item.name} 
-                style={{ 
-                  width: `${100 / transformations.length}%`,
-                  display: "grid",
-                  gridTemplateColumns: "1fr",
-                  alignItems: "stretch",
-                }}
-              >
-                {/* Responsive grid card */}
-                <div 
-                  style={{ 
-                    display: "grid", 
-                    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                  }}
-                >
-                  
-                  {/* Left Side: Before & After Photos side-by-side */}
-                  <div style={{ display: "flex", width: "100%", height: 350, borderRight: "1px solid var(--border)" }}>
-                    {/* Before Photo */}
-                    <div style={{ position: "relative", width: "50%", height: "100%", overflow: "hidden" }}>
-                      <img
-                        src={item.beforeImg}
-                        alt={`${item.name} Before`}
-                        style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(20%)" }}
-                      />
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: 12,
-                          left: 12,
-                          background: "#ffffff",
-                          color: "#000000",
-                          fontFamily: "var(--font-mono)",
-                          fontSize: 9,
-                          fontWeight: 700,
-                          padding: "3px 8px",
-                          borderRadius: 3,
-                          border: "1px solid rgba(0,0,0,0.15)",
-                        }}
-                      >
-                        BEFORE
-                      </div>
-                    </div>
-
-                    {/* After Photo */}
-                    <div style={{ position: "relative", width: "50%", height: "100%", overflow: "hidden", borderLeft: "1px solid var(--border)" }}>
-                      <img
-                        src={item.afterImg}
-                        alt={`${item.name} After`}
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      />
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: 12,
-                          left: 12,
-                          background: "#ffffff",
-                          color: "#000000",
-                          fontFamily: "var(--font-mono)",
-                          fontSize: 9,
-                          fontWeight: 700,
-                          padding: "3px 8px",
-                          borderRadius: 3,
-                          border: "1px solid rgba(0,0,0,0.15)",
-                        }}
-                      >
-                        AFTER
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Side: Testimonial Quote & Info */}
-                  <div style={{ padding: "40px 32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                    <span 
-                      style={{ 
-                        fontFamily: "var(--font-mono)", 
-                        fontSize: 11, 
-                        fontWeight: 700, 
-                        color: "var(--fg-dim)", 
-                        letterSpacing: "0.08em",
-                        marginBottom: 16,
-                        display: "block"
-                      }}
-                    >
-                      {item.name}
-                    </span>
-                    
-                    {/* Testimonial Quote */}
-                    <blockquote
-                      style={{
-                        fontFamily: "var(--font-sans)",
-                        fontWeight: 800,
-                        fontSize: "clamp(18px, 3vw, 24px)",
-                        color: "var(--fg)",
-                        lineHeight: 1.35,
-                        margin: "0 0 24px 0",
-                        letterSpacing: "-0.01em",
-                      }}
-                    >
-                      “{item.quote}”
-                    </blockquote>
-
-                    {/* Action link */}
-                    <div>
-                      <a
-                        href={item.programLink}
-                        style={{
-                          fontFamily: "var(--font-mono)",
-                          fontSize: 11,
-                          fontWeight: 700,
-                          letterSpacing: "0.05em",
-                          color: "var(--fg)",
-                          textDecoration: "underline",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        VISIT PROGRAM
-                      </a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            ))}
-          </motion.div>
+        {/* Header */}
+        <div style={{ marginBottom: 40 }}>
+          <span className="mono-badge" style={{ background: "#000", color: "#fff", border: "none", marginBottom: 12 }}>
+            MEMBER TRANSFORMATIONS
+          </span>
+          <h2 style={{
+            fontFamily: "var(--font-sans)", fontWeight: 800,
+            fontSize: "clamp(34px, 5vw, 56px)", lineHeight: 1.05,
+            color: "var(--fg)", letterSpacing: "-0.02em", margin: 0,
+          }}>
+            Results That Speak<br />Louder Than Words
+          </h2>
+          <p style={{
+            fontFamily: "var(--font-sans)", fontSize: 15,
+            color: "var(--fg-dim)", lineHeight: 1.6,
+            maxWidth: 520, margin: "12px 0 0 0",
+          }}>
+            Drag the slider left or right to reveal the transformation. Real members, real results — no filters, no tricks.
+          </p>
         </div>
+
+        {/* Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: 24,
+        }}>
+          {transformations.map((slide, i) => (
+            <SliderCard key={i} slide={slide} index={i} inView={inView} />
+          ))}
+        </div>
+
+        <p style={{
+          fontFamily: "var(--font-mono)", fontSize: 10,
+          color: "var(--fg-dim)", textAlign: "center",
+          marginTop: 24, letterSpacing: "0.06em",
+        }}>
+          ← SLIDE TO REVEAL TRANSFORMATION →
+        </p>
 
       </div>
     </section>

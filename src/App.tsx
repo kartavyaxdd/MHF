@@ -11,7 +11,6 @@ import TrainersSection from "./components/TrainersSection";
 import PersonalTraining from "./components/PersonalTraining";
 import FaqSection from "./components/FaqSection";
 import EquipmentShowcase from "./components/EquipmentShowcase";
-import TransformationsSection from "./components/TransformationsSection";
 
 interface NavbarProps {
   view: "home" | "pt";
@@ -332,7 +331,6 @@ export default function App() {
               <FeaturesSection />
               <PricingSection onNavigateToPT={() => setView("pt")} />
               <TrainersSection />
-              <TransformationsSection />
               <FaqSection />
               <NutritionCalculator />
             </motion.div>
