@@ -247,7 +247,7 @@ export default function PersonalTraining({ onBack }: PTProps) {
                     Starter Coaching
                   </h3>
                   <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block" }}>
-                    Anubhav Pradhan (1 Yr Exp)
+                    Anubhav Pradhan (2 Yrs Exp)
                   </span>
                 </div>
               </div>

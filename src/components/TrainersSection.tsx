@@ -34,7 +34,7 @@ const trainers: Trainer[] = [
     name: "Anubhav Pradhan",
     role: "PERSONAL TRAINER",
     specialty: "Fat Loss & Progressive Weightlifting",
-    credentials: "PT · 1 Year Experience",
+    credentials: "PT · 2 Years Experience",
     bio: "I help clients of all ages build a lean, strong physique by combining targeted weightlifting with sustainable fat-loss strategies. My coaching focuses on progressive resistance training to maximize muscle growth and increase physical strength, creating a highly efficient metabolism that burns fat. By prioritizing flawless lifting technique, safety, and customized programming, I give you the skills and confidence needed to drop weight, transform your body, and dominate the weight room for life.",
     img: "/anubhav.jpg",
     phone: "8630608211",
