@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import TrainersSection from "./components/TrainersSection";
 import PersonalTraining from "./components/PersonalTraining";
 import FaqSection from "./components/FaqSection";
+import EquipmentShowcase from "./components/EquipmentShowcase";
 
 interface NavbarProps {
   view: "home" | "pt";
@@ -302,6 +303,7 @@ export default function App() {
             >
               <Hero />
               <StatsSection />
+              <EquipmentShowcase />
               <FeaturesSection />
               <PricingSection onNavigateToPT={() => setView("pt")} />
               <TrainersSection />
