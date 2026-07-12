@@ -20,12 +20,12 @@ const trainers: Trainer[] = [
     img: "/varun.jpg",
   },
   {
-    name: "Rohan Sharma",
-    role: "HYPERTROPHY SPECIALIST",
-    specialty: "Body Recomposition & Diet",
-    credentials: "ACSM CPT · PN1 Nutritionist",
-    bio: "Focuses on evidence-based muscle hypertrophy, macro distribution, and scientific diet templates for sustainable fat loss.",
-    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=800&fit=crop&auto=format",
+    name: "Abhishek Panwar",
+    role: "PERSONAL TRAINER",
+    specialty: "Body Recomposition & Hypertrophy",
+    credentials: "CPT · 4+ Years Coaching",
+    bio: "Focused on muscle hypertrophy, fat loss protocols, and tailored daily training templates for fast, evidence-based results.",
+    img: "/abhishek.png",
   },
   {
     name: "Amit Verma",

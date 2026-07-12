@@ -194,95 +194,143 @@ export default function PersonalTraining({ onBack }: PTProps) {
 
           </div>
 
-          {/* Right Column: Pricing package & Risk Reversal */}
+          {/* Right Column: Pricing packages */}
           <div
             style={{
-              background: "var(--bg-card)",
-              border: "2px solid var(--accent)",
-              borderRadius: 16,
-              padding: "32px 24px",
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
-              position: "relative",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: 24,
+              alignItems: "start",
             }}
           >
-            {/* Package badge */}
+            {/* Standard PT Package */}
             <div
               style={{
-                position: "absolute",
-                top: -12,
-                left: 24,
-                background: "#000000",
-                color: "#ffffff",
-                fontFamily: "var(--font-mono)",
-                fontSize: 9,
-                fontWeight: 700,
-                padding: "4px 10px",
-                borderRadius: 4,
-              }}
-            >
-              ELITE PACKAGE
-            </div>
-
-            <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 24, margin: "12px 0 6px 0", color: "var(--fg)" }}>
-              Elite Coaching Tier
-            </h3>
-            
-            <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 20 }}>
-              <span style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 36, color: "var(--fg)" }}>
-                ₹15,000
-              </span>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: 14, color: "var(--fg-dim)", fontWeight: 500 }}>
-                for 3 Months (₹5,000 / mo)
-              </span>
-            </div>
-
-            {/* divider */}
-            <div style={{ height: 1, background: "var(--border)", margin: "0 0 20px 0" }} />
-
-            {/* Inclusions */}
-            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px 0", display: "flex", flexDirection: "column", gap: 10 }}>
-              {[
-                "Dedicated 1-on-1 personal lifting coach",
-                "Custom daily workout programs updated weekly",
-                "Daily nutritional log reviews & calorie adjustments",
-                "Weekly body composition & muscle mass testing",
-                "Full VIP access to all heavy lifting zones",
-                "Unlimited free guest passes (one per month)",
-              ].map((inc) => (
-                <li key={inc} style={{ fontFamily: "var(--font-sans)", fontSize: 13, color: "var(--fg-muted)", display: "flex", gap: 8, alignItems: "flex-start" }}>
-                  <span style={{ color: "#000000", fontWeight: 700 }}>•</span>
-                  {inc}
-                </li>
-              ))}
-            </ul>
-
-            {/* Risk Reversal Callout */}
-            <div
-              style={{
-                background: "rgba(0, 0, 0, 0.03)",
+                background: "var(--bg-card)",
                 border: "1px solid var(--border)",
-                borderRadius: 8,
-                padding: 16,
-                marginBottom: 24,
+                borderRadius: 16,
+                padding: "24px 20px",
+                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.03)",
+                position: "relative",
               }}
             >
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, fontWeight: 700, color: "var(--fg)", display: "block", marginBottom: 6 }}>
-                RISK REVERSAL GUARANTEE:
+              <div
+                style={{
+                  background: "#000000",
+                  color: "#ffffff",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 8,
+                  fontWeight: 700,
+                  padding: "3px 8px",
+                  borderRadius: 3,
+                  display: "inline-block",
+                  marginBottom: 12,
+                }}
+              >
+                STANDARD PT
+              </div>
+              <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 20, margin: "0 0 4px 0", color: "var(--fg)" }}>
+                Coaching Tier
+              </h3>
+              <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block", marginBottom: 12 }}>
+                Trainer: Abhishek Panwar (4+ Yrs Exp)
               </span>
-              <p style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "var(--fg-dim)", lineHeight: 1.4, margin: 0 }}>
-                If you do not hit your strength or body fat target goals in 90 days, we coach you for free until you do. No excuses, no fine print.
-              </p>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 16 }}>
+                <span style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 28, color: "var(--fg)" }}>
+                  ₹9,000
+                </span>
+                <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "var(--fg-dim)", fontWeight: 500 }}>
+                  / 3 Months (₹3,000/mo)
+                </span>
+              </div>
+              <div style={{ height: 1, background: "var(--border)", margin: "0 0 16px 0" }} />
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0", display: "flex", flexDirection: "column", gap: 8 }}>
+                {[
+                  "1-on-1 scheduled gym floor training",
+                  "Customized workout split templates",
+                  "Weekly weight & form feedback check-ins",
+                  "Full gym floor & heavy iron zone access",
+                ].map((inc) => (
+                  <li key={inc} style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "var(--fg-muted)", display: "flex", gap: 6 }}>
+                    <span style={{ color: "var(--fg)", fontWeight: 700 }}>•</span>
+                    {inc}
+                  </li>
+                ))}
+              </ul>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="pill-button"
+                style={{ width: "100%", padding: "10px 0", fontSize: 12 }}
+              >
+                BOOK STANDARD PT
+              </motion.button>
             </div>
 
-            {/* Action button */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="pill-button"
-              style={{ width: "100%", padding: "12px 0", fontSize: 13 }}
+            {/* Elite PT Package */}
+            <div
+              style={{
+                background: "var(--bg-card)",
+                border: "2px solid var(--accent)",
+                borderRadius: 16,
+                padding: "24px 20px",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.06)",
+                position: "relative",
+              }}
             >
-              BOOK FREE PT CONSULTATION
-            </motion.button>
+              <div
+                style={{
+                  position: "absolute",
+                  top: -10,
+                  left: 20,
+                  background: "#000000",
+                  color: "#ffffff",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 8,
+                  fontWeight: 700,
+                  padding: "3px 8px",
+                  borderRadius: 3,
+                }}
+              >
+                ELITE PACKAGE
+              </div>
+              <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 20, margin: "8px 0 4px 0", color: "var(--fg)" }}>
+                Coaching Tier
+              </h3>
+              <span style={{ fontFamily: "var(--font-sans)", fontSize: 11, color: "var(--fg-dim)", display: "block", marginBottom: 12 }}>
+                Trainer: Varun Sharma (10+ Yrs Exp)
+              </span>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 16 }}>
+                <span style={{ fontFamily: "var(--font-sans)", fontWeight: 800, fontSize: 28, color: "var(--fg)" }}>
+                  ₹15,000
+                </span>
+                <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "var(--fg-dim)", fontWeight: 500 }}>
+                  / 3 Months (₹5,000/mo)
+                </span>
+              </div>
+              <div style={{ height: 1, background: "var(--border)", margin: "0 0 16px 0" }} />
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0", display: "flex", flexDirection: "column", gap: 8 }}>
+                {[
+                  "Dedicated 1-on-1 personal lifting coach",
+                  "Daily nutrition adjustments & calorie tuning",
+                  "Weekly body composition testing & steam bath",
+                  "90-Day Results Guarantee (or train free)",
+                ].map((inc) => (
+                  <li key={inc} style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "var(--fg-muted)", display: "flex", gap: 6 }}>
+                    <span style={{ color: "var(--fg)", fontWeight: 700 }}>•</span>
+                    {inc}
+                  </li>
+                ))}
+              </ul>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="pill-button"
+                style={{ width: "100%", padding: "10px 0", fontSize: 12 }}
+              >
+                BOOK ELITE PT
+              </motion.button>
+            </div>
           </div>
         </div>
 
